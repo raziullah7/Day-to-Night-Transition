@@ -91,6 +91,7 @@ public class Picture
         }
     }
 
+// ----------------------------------------------------------
     // Making my own method for neatness and encapsulation
     // Method to handle all the transitions in the MainTry2.java
     public void transitioning() {
@@ -175,14 +176,32 @@ public class Picture
             sun.moveHorizontal(1);
         }
 
-        football.makeInvisible();
+        // Sunset and finishing scenes
         sun.slowMoveVertical(30);
         person2.makeInvisible();
         sun.changeColor("red");
         sun.slowMoveVertical(20);
+        football.slowMoveVertical(-40);
+        person1.slowMoveHorizontal(-10);
+        football.makeInvisible();
         person1.makeInvisible();
         sun.slowMoveVertical(100);
+        sun.makeInvisible();
     }
+
+    // Let's hope a black colored moon works ;)
+    public void sunToMoonConversion() {
+        sun.changeSize(60);
+        sun.moveHorizontal(-380);
+        sun.moveVertical(-170);
+        sun.makeVisible();
+
+        for (int i = 0; i < 30; i++) {
+            sun.moveVertical(-1);
+            sun.moveHorizontal(2);
+        }
+    }
+// -----------------------------------------------------------
 
     /**
      * Change this picture to use color display
