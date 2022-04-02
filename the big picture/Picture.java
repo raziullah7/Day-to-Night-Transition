@@ -92,7 +92,7 @@ public class Picture
     }
 
 // ----------------------------------------------------------
-    // Making my own method for neatness and encapsulation
+    // Making my own methods for neatness and encapsulation
     // Method to handle all the transitions in the MainTry2.java
     public void transitioning() {
         sun.slowMoveVertical(-50);
@@ -189,6 +189,7 @@ public class Picture
         sun.makeInvisible();
     }
 
+    // Method for changing and re-positioning the sun as moon
     // Let's hope a black colored moon works ;)
     public void sunToMoonConversion() {
         sun.changeSize(60);
@@ -196,6 +197,7 @@ public class Picture
         sun.moveVertical(-170);
         sun.makeVisible();
 
+        // Appearing of the moon into the sky
         for (int i = 0; i < 30; i++) {
             sun.moveVertical(-1);
             sun.moveHorizontal(2);
