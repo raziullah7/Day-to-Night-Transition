@@ -1,5 +1,6 @@
 public class MainFile {
-
+// Making the objects and transitions directly into the main method
+// Not a neat and recommended approach
     public static void main(String args[]) {
         // sun's initial state
         Circle sun = new Circle();

@@ -15,6 +15,9 @@ public class Picture
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Person person1;
+    private Person person2;
+    private Circle football;
 
     /**
      * Constructor for objects of class Picture
@@ -57,6 +60,21 @@ public class Picture
         sun.moveVertical(140);
         sun.changeSize(80);
         sun.makeVisible();
+
+        person1 = new Person();
+        person1.moveDown();
+        person1.moveRight();
+
+        person2 = new Person();
+        person2.moveDown();
+        person2.moveHorizontal(180);
+
+        football = new Circle();
+        football.changeSize(15);
+        football.changeColor("blue");
+        football.moveVertical(160);
+        football.moveHorizontal(73);
+
     }
 
     /**
@@ -73,24 +91,96 @@ public class Picture
         }
     }
 
+    // Making my own method for neatness and encapsulation
     // Method to handle all the transitions in the MainTry2.java
     public void transitioning() {
-        sun.slowMoveVertical(-170);
+        sun.slowMoveVertical(-50);
+        person1.makeVisible();
+        sun.slowMoveVertical(-50);
+        person2.makeVisible();
+        sun.slowMoveVertical(-50);
+        football.makeVisible();
+        sun.slowMoveVertical(-19);
+
+        // Curve up the sun
+        // Simultaneous movement of sun and person1 (+ve direction)
         for (int i = 0; i < 30; i++) {
-            sun.slowMoveVertical(-1);
             sun.moveVertical(-1);
-            sun.slowMoveHorizontal(1);
+            if (i % 3 == 0)
+                person1.moveHorizontal(5);
+            else
+                person1.moveHorizontal(4);
             sun.moveHorizontal(1);
         }
-        sun.slowMoveHorizontal(220);
+
+        // Simultaneous movement of sun and person1 (-ve direction)
         for (int i = 0; i < 30; i++) {
-            sun.slowMoveVertical(1);
-            sun.moveVertical(1);
-            sun.slowMoveHorizontal(1);
+            sun.moveVertical(-1);
+            if (i % 3 == 0)
+                person1.moveHorizontal(-5);
+            else
+                person1.moveHorizontal(-4);
             sun.moveHorizontal(1);
         }
-        sun.slowMoveVertical(50);
+
+        // Moving sun horizontal (+ve direction) when at highest position
+        // Simultaneously passing the football between person1 and person2
+        for (int i = 0; i < 55; i++) {
+            if (i % 2 == 0)
+                football.moveHorizontal(2);
+            else
+                football.moveHorizontal(3);
+            sun.moveHorizontal(1);
+        }
+        for (int i = 0; i < 55; i++) {
+            if (i % 2 == 0)
+                football.moveHorizontal(-2);
+            else
+                football.moveHorizontal(-3);
+            sun.moveHorizontal(1);
+        }
+        for (int i = 0; i < 55; i++) {
+            if (i % 2 == 0)
+                football.moveHorizontal(2);
+            else
+                football.moveHorizontal(3);
+            sun.moveHorizontal(1);
+        }
+        for (int i = 0; i < 55; i++) {
+            if (i % 2 == 0)
+                football.moveHorizontal(-2);
+            else
+                football.moveHorizontal(-3);
+            sun.moveHorizontal(1);
+        }
+
+        // Curve down the sun
+        // Simultaneous movement of sun and person1 (+ve direction)
+        for (int i = 0; i < 30; i++) {
+            sun.moveVertical(1);
+            if (i % 3 == 0)
+                football.moveHorizontal(5);
+            else
+                football.moveHorizontal(4);
+            sun.moveHorizontal(1);
+        }
+
+        // Simultaneous movement of sun and person1 (-ve direction)
+        for (int i = 0; i < 30; i++) {
+            sun.moveVertical(1);
+            if (i % 3 == 0)
+                football.moveHorizontal(-5);
+            else
+                football.moveHorizontal(-4);
+            sun.moveHorizontal(1);
+        }
+
+        football.makeInvisible();
+        sun.slowMoveVertical(30);
+        person2.makeInvisible();
         sun.changeColor("red");
+        sun.slowMoveVertical(20);
+        person1.makeInvisible();
         sun.slowMoveVertical(100);
     }
 
